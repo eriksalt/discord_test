@@ -1,5 +1,12 @@
+import os
 import discord
 
-client=discord.Client()
-client.run('ODQ2MTExNzg3OTM3OTU1OTIw.YKqxAg.ZEcbhT6HQWnWjyPXbTotEMJ1Zp8')
+TOKEN = os.getenv('DISCORD_TOKEN')
 
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print(f'{client.user} has connected to Discord!')
+
+client.run(TOKEN)
